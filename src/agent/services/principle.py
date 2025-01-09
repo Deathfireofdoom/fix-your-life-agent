@@ -48,8 +48,7 @@ class PrincipleService:
             principles.append(principle)
 
         self.session.commit()
-        return principles
-
+        return principles   
 
     def get_principles_by_id(self, ids: List[int]) -> List[Principle]:
         """

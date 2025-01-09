@@ -233,17 +233,13 @@ class Agent:
             dict: A dictionary containing the selected tags and use cases.
         """
         try:
-            # Remove Markdown-style code block markers
             cleaned_response = re.sub(r"```.*?\n|```", "", llm_response_content, flags=re.DOTALL)
 
-            # Attempt to parse the cleaned response as JSON
             response = json.loads(cleaned_response)
-
 
             tags = response.get("tags", [])
             use_cases = response.get("use_cases", [])
 
-            # Ensure tags and use cases are valid
             tags = [tag for tag in tags if tag in TAGS]
             use_cases = [use_case for use_case in use_cases if use_case in USE_CASES]
 

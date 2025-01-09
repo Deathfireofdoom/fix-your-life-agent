@@ -34,7 +34,7 @@ class Principle(Base):
     use_cases = relationship('UseCase', secondary=principle_use_cases, back_populates='principles')
 
     def __repr__(self):
-        return f"<Principle(id={self.id}, book_title='{self.book_title}', principle='{self.principle}')>"
+        return f"<Principle(id={self.id}, book_title='{self.book_title}')>"
 
 # Tag model
 class Tag(Base):
