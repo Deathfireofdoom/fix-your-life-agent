@@ -21,8 +21,5 @@ if __name__ == '__main__':
         # Create the Agent
         agent = Agent(principle_service=principle_service, llm=llm)
 
-        # Run your queries
-        #query_add_book = "add book the making of a manager"
-        #agent.ask(query_add_book)
-        query_generate = "generate actions task for me to test in my next meeting"
-        agent.ask(query_generate)
+        query = input("Please input your query:")
+        agent.ask(query)

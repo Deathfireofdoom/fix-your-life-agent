@@ -30,6 +30,9 @@ class PrincipleService:
                 details=row.get("Details", "").strip()
             )
 
+            # Add the principle to the session before establishing relationships
+            self.session.add(principle)
+
             # Associate tags
             tags = [tag.strip() for tag in row.get("Tags", "").split(",") if tag]
             for tag_name in tags:
@@ -42,11 +45,11 @@ class PrincipleService:
                 use_case = self._get_or_create_use_case(use_case_name)
                 principle.use_cases.append(use_case)
 
-            self.session.add(principle)
             principles.append(principle)
 
         self.session.commit()
         return principles
+
 
     def get_principles_by_id(self, ids: List[int]) -> List[Principle]:
         """
