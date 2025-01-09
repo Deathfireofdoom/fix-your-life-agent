@@ -414,7 +414,7 @@ class PrincipleAgent:
         self.session.commit()
 
         return updated_principles
- 
+
     # TODO: they should be moved
     def _get_or_create_tag(self, tag_name: str) -> Tag:
         """
